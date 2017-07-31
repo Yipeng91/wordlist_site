@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8"> 
+   <title>Bootstrap 实例 - 响应式的列重置</title>
+   <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">  
+   <link rel="stylesheet" href="/static/css/index.css">
+   <!-- <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script> -->
+   <script src="/static/jQueryAssets/jquery-1.11.3.min.js"></script>
+   <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/static/jQueryAssets/jquery-1.11.1.min.js"></script>
+<script src="/static/jQueryAssets/jquery.ui-1.10.4.button.min.js"></script>
+
+<style>
+	   .div1{
+		   width: 602px;
+		   height: 302px;
+		   border: 1px,1px,1px,1px,#030303
+	   }
+	#logStatus{
+		
+	}
+	
+@media screen{
+.top-navbar {
+}
+}
+   </style>
+   <link href="/static/jQueryAssets/jquery.ui.core.min.css" rel="stylesheet" type="text/css">
+   <link href="/static/jQueryAssets/jquery.ui.theme.min.css" rel="stylesheet" type="text/css">
+   <link href="/static/jQueryAssets/jquery.ui.button.min.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-static-top">
+	<div class="container">
+		<div class="navbar-header">
+	      <button class="navbar-toggle" data-toggle="collaps" data-target="#mymenu">
+	      	<span class="icon-bar">sd</span>
+	      	<span class="icon-bar">sd</span>
+	      	<span class="icon-bar">sd</span>
+	      </button>
+	      <a href="#" class="navbar-brand">LOGO</a>
+	    </div>
+	<div class="collapse navbar-collapse" id="mymeny">
+		<ul class="nav navbar-nav">
+		<li class="active"><a href="#">{{username}}</a></li>
+		<li ><a href="#">公司动态</a></li>
+		<li ><a href="#">行业新闻</a></li>
+		</ul>
+	
+		<form class="navbar-form navbar-right">
+		<div class="form-group">
+		<div class="input-group">
+			<input type="text" class="form-control">
+			<span class="input-group-btn">
+				<button class="btn btn-default" type="button">Go!</button>
+			</span>
+		</div>
+			</div>
+		</form>
+		<button id="logStatus" class='navbar-btn navbar-right btn'>{{logStatus}}</button>
+    </div>
+</div>
+</div>
+<div class='topic'><div class="topic-below"></div> </div>
+
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Default button<span class="caret"></span></button>
+        <ul class="dropdown-menu" id ='instacart-menu'>
+            <li role="presentation" class="dropdown-header">选择要显示的选项</li>
+            <li role="presentation" ><a href="#">order</a></li>
+            <li role="presentation"><a href="#">instacart</a></li>
+			<li role="presentation"><a href="#">instacart_prior</a></li>
+            <li role="presentation"><a href="#">product</a></li>
+        </ul>
+    </div>
+
+<div class=''>
+<ul>
+{% for i in QuerySet%}
+{% if i.aisle|length < 4%}
+<li>id of aisle: {{i.aisle_id}}, aisle:{{i.aisle}} </li>
+{%endif%}
+{%endfor%}
+	</ul>
+ </div>
+<script type="text/javascript">
+$(function() {
+	$( "#Button1" ).button(); 
+	$('#logStatus').click(function(){
+		console.log(document.cookie.indexOf('username'))
+		if(document.cookie.indexOf('username') == ''){
+			 console.log('1')
+		     $(location).attr('herf','/login/')
+		}else{
+			document.cookie = 'username = '
+		}
+	})
+	$('#instacart-menu li').each(function(){
+		$(this).click(function(){	
+			alert('aa')
+			$(this).parent().prev().text($(this).text())
+			
+		})
+	})
+});
+</script>
+</body>
+</html>

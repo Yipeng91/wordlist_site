@@ -1,0 +1,27 @@
+// JavaScript Document
+/*$.validator.setDefaults({
+	submitHandler:function(){
+		alert('');
+	}
+})*/
+$().ready(function(){
+		  $('#register_check').validate({
+			  rules:{
+				  username:{
+					  minlength:5,
+				      maxlength:20
+				  },
+				  password:{
+					  minlength:8
+				  },
+				  confirm_password:{
+					  minlength:8,
+					  equalTo:'#password'
+				  },
+				  email:{
+					  email:true
+				  }
+			  }
+		  });
+		  }
+)

@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>login</title>
+<script src="/static/jQueryAssets/jquery-1.11.1.min.js"></script>
+
+</head>
+
+<body>
+<div>
+    <form method="POST" action="/check/">
+	<input type='text' name="username" id='username' />
+	<input type="password" name="password" />
+	<input type="submit" id="btnLogin" />
+		<input type="button" id="btnLogin2" />
+	</form>
+
+	<ul id="jsonList"></ul>
+</div>
+<script>
+	$(function(){
+		$("#btnLogin2").click(function(){
+			$.get('/ajax_check/?user=admin&password=123456',function(data){
+				ul = $('#jsonList');
+				ul.append('<li>'+data['status']+'</li>');
+				console.log('abc')
+	     	})
+		
+	    })
+	})
+	</script>
+</body>
+
+</html>
